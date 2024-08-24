@@ -145,5 +145,3 @@ Feel free to contribute by submitting issues or pull requests. Please ensure tha
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-This `README.md` provides a comprehensive guide on setting up, configuring, and running your fullstack application. Make sure to replace placeholders with actual project details and adjust instructions based on your specific needs.
