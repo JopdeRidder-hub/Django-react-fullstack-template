@@ -1,0 +1,55 @@
+# JetBrains IDEs
+.idea/
+.venv/
+*.iml
+*.iws
+*.ipr
+
+# Directory for logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build directories
+dist/
+build/
+out/
+coverage/
+
+# Docker files
+docker-compose.override.yml
+.docker/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.bak
+*.orig
+*.tmp
+*.swp
+*.swo
+
+# IDE-specific
+*.sublime-workspace
+*.sublime-project
+
+# Mac specific files
+.AppleDouble
+.LSOverride
+
+# Linux specific files
+*~

@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    command: >
+      sh -c "python manage.py migrate &&
+             gunicorn --bind 0.0.0.0:8000 src.wsgi:application"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend/src
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  nginx:
+    build:
+      context: .  # Root directory
+      dockerfile: Dockerfile.nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+
+  db:
+    image: postgres:15-alpine
+    container_name: db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: your_db_name
+      POSTGRES_USER: your_db_user
+      POSTGRES_PASSWORD: your_db_password
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
